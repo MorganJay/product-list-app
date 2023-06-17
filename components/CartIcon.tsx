@@ -1,14 +1,18 @@
 import styled from 'styled-components';
 import Link from 'next/link';
 
-import { useAppSelector } from '../redux/hooks/hooks';
-import { selectCartItemsCount } from '../features/cart/cartSlice';
+import { useAppSelector } from '@/redux/hooks';
+import { selectCartItemsCount } from '@/redux/features/cart/cartSlice';
 
 const CartIcon = () => {
   const count = useAppSelector(selectCartItemsCount);
 
   return (
-    <StyledLink href="/cart" aria-label={`${count} items in cart`} id="nav-cart">
+    <StyledLink
+      href="/cart"
+      aria-label={`${count} items in cart`}
+      id="nav-cart"
+    >
       <CartCountContainer id="nav-cart-count-container">
         <CartCount id="nav-cart-count" aria-hidden="true">
           {count}

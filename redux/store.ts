@@ -13,8 +13,8 @@ import {
 import storage from 'redux-persist/lib/storage';
 import { configureStore, ThunkAction, Action } from '@reduxjs/toolkit';
 
-import cartReducer from '../features/cart/cartSlice';
-import productsReducer from '../features/products/productSlice';
+import cartReducer from './features/cart/cartSlice';
+import productsReducer from './features/products/productSlice';
 
 const persistConfig = {
   key: 'root',

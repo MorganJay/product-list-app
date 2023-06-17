@@ -1,7 +1,7 @@
 import styled, { css, ThemedStyledFunctionBase } from 'styled-components';
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 
-import { ProductCardProps } from '../../types/productCard';
+import { ProductCardProps } from '@/types/productCard';
 
 interface ProductRatingProps extends ProductCardProps {
   ratings: number;
@@ -21,14 +21,14 @@ const ProductRating = ({
   return (
     <StarsnRatingContainer>
       <span aria-label="4.8 out of 5 stars">
-        <Link to={link} onClick={handleClick}>
+        <Link href={link!} onClick={handleClick}>
           <i className="star"></i>
           <i className="popover"></i>
         </Link>
         {!detailed && <span>{(Math.random() * 5).toFixed(1)} </span>}
       </span>
       <RatingsCount detailed={detailed} aria-label={ratings.toLocaleString()}>
-        <Link to={link}>
+        <Link href={link!}>
           {detailed
             ? `${ratings.toLocaleString()} customer rating(s)`
             : `(${ratings.toLocaleString()})`}

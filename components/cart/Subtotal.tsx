@@ -1,10 +1,12 @@
 import styled from 'styled-components';
 
 import ProductPrice from '../product-preview/ProductPrice';
-import { CurrencyEnum } from '../../types/assets';
-import { breakpointMd } from '../../variables.styles';
-import { useAppSelector } from '../../app/hooks';
-import { selectCartItemsCount } from '../../features/cart/cartSlice';
+
+import { CurrencyEnum } from '@/types/assets';
+import { breakpointMd } from '@/variables.styles';
+
+import { useAppSelector } from '@/redux/hooks';
+import { selectCartItemsCount } from '@/redux/features/cart/cartSlice';
 
 interface Props {
   totalPrice: number;

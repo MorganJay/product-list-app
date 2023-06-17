@@ -1,21 +1,39 @@
+'use client';
+
 import styled from 'styled-components';
 import { useEffect, useState } from 'react';
-
 import CircularProgress from '@mui/material/CircularProgress';
 
-import { useAppDispatch, useAppSelector } from '../../redux/hooks/hooks';
-
+import { useAppDispatch, useAppSelector } from '@/redux/hooks';
 import {
   selectProductState,
   fetchAssetsAsync,
   filterAndSetSelectedProduct,
-} from '../../features/products/productSlice';
+} from '@/redux/features/products/productSlice';
 
-import CartCTA from '../../components/product-details/CartCTA';
-import ProductCard from '../../components/product-details/ProductCard';
-import ProductDisplay from '../../components/product-details/ProductDisplay';
+import CartCTA from '@/components/product-details/CartCTA';
+import ProductCard from '@/components/product-details/ProductCard';
+import ProductDisplay from '@/components/product-details/ProductDisplay';
 
-const ProductDetailPage = () => {
+export function getStaticProps({ params }: { params: { id: string } }) {
+  return {
+    props: {
+      productId: params.id,
+    },
+  };
+}
+
+// export function getStaticPaths() {
+
+//   return {
+//     paths: coffeeStoresData.map(store => {
+//       return { params: { id: store.id.toString() } };
+//     }),
+//     fallback: true, // can also be true or 'blocking'
+//   };
+// }
+
+const ProductDetailPage = ({ productId }: { productId: string }) => {
   const dispatch = useAppDispatch();
   const { selectedProduct, value } = useAppSelector(selectProductState);
   const [selectedAmount, setSelectedAmount] = useState<number>(0);
@@ -23,7 +41,6 @@ const ProductDetailPage = () => {
   const [quantity, setQuantity] = useState<number>(1);
 
   const totalPrice = (quantity * selectedAmount).toFixed(2);
-  const id = '1';
   const handleQuantityInputChange = (
     event: React.ChangeEvent<HTMLInputElement>
   ) => setQuantity(+event.target.value);
@@ -48,7 +65,7 @@ const ProductDetailPage = () => {
 
   useEffect(() => {
     if (value?.length) {
-      dispatch(filterAndSetSelectedProduct(id!));
+      dispatch(filterAndSetSelectedProduct(productId!));
     }
   }, [value?.length]);
 

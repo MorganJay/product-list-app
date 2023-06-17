@@ -1,5 +1,5 @@
-import { getCartTotalPrice } from '../features/cart/cartFunctions';
-import { EcommerceCartItem } from '../types/cart';
+import { getCartTotalPrice } from './cartFunctions';
+import { EcommerceCartItem } from '../../../types/cart';
 
 export enum CartPageActions {
   SET_LOADING,

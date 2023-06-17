@@ -1,29 +1,30 @@
+'use client';
+
 import { useEffect, useReducer } from 'react';
 
-import Loader from '../../components/Loader';
-import Subtotal from '../../components/cart/Subtotal';
-import GiftPrompt from '../../components/cart/GiftPrompt';
-import PageHeader from '../../components/cart/PageHeader';
-import CartItemList from '../../components/cart/CartItemList';
-import CheckoutButton from '../../components/cart/CheckoutButton';
-import SavedItemPrompt from '../../components/cart/SavedItemPrompt';
+import Loader from '@/components/Loader';
+import Subtotal from '@/components/cart/Subtotal';
+import GiftPrompt from '@/components/cart/GiftPrompt';
+import PageHeader from '@/components/cart/PageHeader';
+import CartItemList from '@/components/cart/CartItemList';
+import CheckoutButton from '@/components/cart/CheckoutButton';
+import SavedItemPrompt from '@/components/cart/SavedItemPrompt';
 
-import { breakpointMd } from '../../variables.styles';
+import { breakpointMd } from '@/variables.styles';
 
-import { selectStore } from '../../redux/store';
-import { useAppSelector, useAppDispatch } from '../../redux/hooks/hooks';
-import useWindowDimensions from '../../hooks/useWindowDimensions';
+import { selectStore } from '@/redux/store';
+import { useAppSelector, useAppDispatch } from '@/redux/hooks';
+import useWindowDimensions from '@/hooks/useWindowDimensions';
 
-import { EcommerceCartItem } from '../../types/cart';
-import { clearSelectedItem } from '../../features/cart/cartSlice';
-import { fetchCartItemsData } from '../../features/cart/cartFunctions';
-import { fetchAssetsAsync } from '../../features/products/productSlice';
-
+import { EcommerceCartItem } from '@/types/cart';
+import { clearSelectedItem } from '@/redux/features/cart/cartSlice';
+import { fetchCartItemsData } from '@/redux/features/cart/cartFunctions';
+import { fetchAssetsAsync } from '@/redux/features/products/productSlice';
 import cartPageReducer, {
   CartPageActions,
   initialState,
   ItemActionPrompt,
-} from '../../redux/cartPageReducer';
+} from '@/redux/features/cart/cartPageReducer';
 
 import {
   CheckoutContainer,

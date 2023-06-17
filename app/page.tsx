@@ -1,16 +1,16 @@
-"use client";
+'use client';
 
 import { useEffect } from 'react';
 
-import Loader from '../components/Loader';
-import ProductPreview from '../components/product-preview/ProductPreview';
+import Loader from '@/components/Loader';
+import ProductPreview from '@/components/product-preview/ProductPreview';
 
-import { LoadingState } from '../types/assets';
-import { useAppDispatch, useAppSelector } from '../redux/hooks/hooks';
+import { LoadingState } from '@/types/assets';
+import { useAppDispatch, useAppSelector } from '@/redux/hooks';
 import {
   fetchAssetsAsync,
   selectProductState,
-} from '../features/products/productSlice';
+} from '@/redux/features/products/productSlice';
 
 import {
   Container,
@@ -30,7 +30,7 @@ export default function Home() {
 
   useEffect(() => {
     if (!value) dispatch(fetchAssetsAsync());
-  }, []);
+  }, [value, dispatch]);
 
   return (
     <Container>
@@ -48,7 +48,7 @@ export default function Home() {
               </CountSubContainer>
             </CountContainer>
             <ProductsGrid>
-              {value?.slice(0, 12).map((product) => (
+              {value?.slice(0, 12).map(product => (
                 <ProductPreview key={product.productId} product={product} />
               ))}
             </ProductsGrid>

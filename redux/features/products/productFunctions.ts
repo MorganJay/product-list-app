@@ -1,4 +1,4 @@
-import { GiftCard, Ecommerce } from '../../types/assets';
+import { Ecommerce } from '@/types/assets';
 
 export const getProductById = (
   products: Ecommerce[],

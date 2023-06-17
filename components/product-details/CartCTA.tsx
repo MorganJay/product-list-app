@@ -1,14 +1,14 @@
 import styled from 'styled-components';
 import { toast } from 'react-hot-toast';
 
-import Button from '../button/Button';
+import Button from '../Button';
 
-import { useAppDispatch } from '../../app/hooks';
-import { CurrencyEnum } from '../../types/assets';
-import { breakpointMd } from '../../variables.styles';
+import { useAppDispatch } from '@/redux/hooks';
+import { CurrencyEnum } from '@/types/assets';
+import { breakpointMd } from '@/variables.styles';
 
-import { addItem } from '../../features/cart/cartSlice';
-import { CartItem } from '../../types/cart';
+import { addItem } from '@/redux/features/cart/cartSlice';
+import { CartItem } from '@/types/cart';
 
 interface Props {
   quantity: number;

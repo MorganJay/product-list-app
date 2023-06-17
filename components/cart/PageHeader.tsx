@@ -1,9 +1,7 @@
 import styled from 'styled-components';
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 
 import { breakpointMd } from '../../variables.styles';
-
-import { selectCartItemsCount } from '../../features/cart/cartSlice';
 
 interface Props {
   isCartEmpty: boolean;
@@ -21,7 +19,7 @@ const PageHeader = ({ isCartEmpty }: Props) => {
       {isCartEmpty ? (
         <span>
           Check your Saved for later items below or{' '}
-          <Link to="/">continue shopping.</Link>{' '}
+          <Link href="/">continue shopping.</Link>{' '}
         </span>
       ) : (
         <>

@@ -1,10 +1,10 @@
 import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit';
 
-import { RootState } from '../../redux/store';
+import { RootState } from '@/redux/store';
 
-import { getAssetsAsync } from '../../services/AssetsService';
+import { getAssetsAsync } from '@/services/AssetsService';
 
-import { Ecommerce, LoadingState } from '../../types/assets';
+import { Ecommerce, LoadingState } from '@/types/assets';
 import { getProductById } from './productFunctions';
 
 export interface ProductsState {
@@ -37,23 +37,23 @@ export const productSlice = createSlice({
     selectProduct: (state, action: PayloadAction<Ecommerce>) => {
       state.selectedProduct = action.payload;
     },
-    clearSelectedProduct: (state) => {
+    clearSelectedProduct: state => {
       state.selectedProduct = undefined;
     },
     filterAndSetSelectedProduct: (state, action: PayloadAction<string>) => {
       state.selectedProduct = getProductById(state.value!, action.payload);
     },
   },
-  extraReducers: (builder) => {
+  extraReducers: builder => {
     builder
-      .addCase(fetchAssetsAsync.pending, (state) => {
+      .addCase(fetchAssetsAsync.pending, state => {
         state.status = LoadingState.LOADING;
       })
       .addCase(fetchAssetsAsync.fulfilled, (state, action) => {
         state.status = LoadingState.IDLE;
         state.value = action.payload;
       })
-      .addCase(fetchAssetsAsync.rejected, (state) => {
+      .addCase(fetchAssetsAsync.rejected, state => {
         state.status = LoadingState.FAILED;
       });
   },

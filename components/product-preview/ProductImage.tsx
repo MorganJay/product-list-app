@@ -1,5 +1,6 @@
+import Link from 'next/link';
+import Image from 'next/image';
 import styled from 'styled-components';
-import { Link } from 'react-router-dom';
 
 import { ProductCardProps } from '../../types/productCard';
 
@@ -17,9 +18,9 @@ const ProductImage = ({
   return (
     <ImageContainer onClick={handleClick}>
       <span>
-        <Link to={link!} onClick={handleClick}>
+        <Link href={link || '/'} onClick={handleClick}>
           <div>
-            <img src={imgUrl} alt={name} />
+            <Image src={imgUrl} alt={name} height={200} width={300} />
           </div>
         </Link>
       </span>

@@ -5,9 +5,9 @@ import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
 
 import { CartItemProps } from '../cart-item/CartItem';
 
-import { useAppDispatch } from '../../app/hooks';
+import { useAppDispatch } from '@/redux/hooks';
 
-import { removeItem, addItem } from '../../features/cart/cartSlice';
+import { removeItem, addItem } from '@/redux/features/cart/cartSlice';
 
 const ItemQuantityButtons = ({ item, onDelete }: CartItemProps) => {
   const dispatch = useAppDispatch();

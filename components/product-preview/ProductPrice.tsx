@@ -1,7 +1,7 @@
 import styled from 'styled-components';
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 
-import { ProductCardProps, ProductPreviewProps } from '../../types/productCard';
+import { ProductCardProps } from '../../types/productCard';
 import { CurrencyEnum } from '../../types/assets';
 
 interface Props extends ProductCardProps {
@@ -21,7 +21,7 @@ const ProductPrice = ({
   // const fixedPrice = fixedSenderDenominations?.at(0) ?? 0;
   return (
     <PriceContainer style={{ marginTop: checkout ? 0 : 10 }}>
-      <PriceSubContainer to={link} role="button" onClick={handleClick}>
+      <PriceSubContainer href={link} role="button" onClick={handleClick}>
         <span className="symbol">{currency}</span>
         {displayPrice[0] ?? 0}
         <span className="fraction">{displayPrice[1] ?? '00'}</span>

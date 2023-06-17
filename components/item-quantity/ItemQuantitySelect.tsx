@@ -1,12 +1,9 @@
 import styled from 'styled-components';
-import {
-  clearSelectedItem,
-  addItem,
-  setItemQuantity,
-} from '../../features/cart/cartSlice';
 
-import { useAppDispatch } from '../../app/hooks';
 import { CartItemProps } from '../cart-item/CartItem';
+
+import { useAppDispatch } from '@/redux/hooks';
+import { setItemQuantity } from '@/redux/features/cart/cartSlice';
 
 const ItemQuantitySelect = ({ item, onDelete }: CartItemProps) => {
   const dispatch = useAppDispatch();

@@ -1,15 +1,15 @@
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 import styled from 'styled-components';
 
 import Badge from './Badge';
-import Image from './ProductImage';
+import ProductImage from './ProductImage';
 import Price from './ProductPrice';
 import Rating from './ProductRating';
 import PopupToggle from './MenuPopup';
 
-import { useAppDispatch } from '../../app/hooks';
-import { selectProduct } from '../../features/products/productSlice';
-import { ProductPreviewProps } from '../../types/productCard';
+import { useAppDispatch } from '@/redux/hooks';
+import { selectProduct } from '@/redux/features/products/productSlice';
+import { ProductPreviewProps } from '@/types/productCard';
 
 const ProductPreview = ({ product }: ProductPreviewProps) => {
   const dispatch = useAppDispatch();
@@ -22,14 +22,14 @@ const ProductPreview = ({ product }: ProductPreviewProps) => {
         <CardWrapper>
           <PopupToggle />
           <Badge />
-          <Image
+          <ProductImage
             imgUrl={thumbnail}
             link={link}
             name={name}
             handleClick={() => dispatch(selectProduct(product))}
           />
           <DetailsContainer>
-            <Link to={link} onClick={() => dispatch(selectProduct(product))}>
+            <Link href={link} onClick={() => dispatch(selectProduct(product))}>
               {/* Color picker? */}
               <ProductName>{name}</ProductName>
             </Link>

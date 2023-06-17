@@ -1,8 +1,8 @@
-import axios, { AxiosError } from 'axios';
 import { toast } from 'react-hot-toast';
+import axios, { AxiosError } from 'axios';
 
-axios.defaults.baseURL = import.meta.env.VITE_APP_BASE_URL + '/v0.2';
-axios.defaults.headers.common['X-API-KEY'] = import.meta.env.VITE_APP_API_KEY;
+axios.defaults.baseURL = process.env.NEXT_PUBLIC_APP_BASE_URL + '/v0.2';
+axios.defaults.headers.common['X-API-KEY'] = process.env.NEXT_PUBLIC_APP_API_KEY;
 
 axios.interceptors.response.use(null, (error: AxiosError) => {
   const expectedError =
@@ -17,7 +17,7 @@ axios.interceptors.response.use(null, (error: AxiosError) => {
   const errorMessage = error.message ?? 'An unexpected error occurred.';
   console.error(errorMessage);
   toast.error(
-    'There seems to be a problem loading our gift cards, please try again later',
+    'There seems to be a problem loading our products, please try again later',
     { duration: 5000 }
   );
   return Promise.reject(error);
