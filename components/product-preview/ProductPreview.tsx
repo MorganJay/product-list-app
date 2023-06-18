@@ -26,23 +26,24 @@ const ProductPreview = ({ product }: ProductPreviewProps) => {
             imgUrl={thumbnail}
             link={link}
             name={name}
-            handleClick={() => dispatch(selectProduct(product))}
+           // handleClick={() => dispatch(selectProduct(product))}
           />
           <DetailsContainer>
-            <Link href={link} onClick={() => dispatch(selectProduct(product))}>
-              {/* Color picker? */}
+            <Link href={link} 
+            //onClick={() => dispatch(selectProduct(product))}
+            >
               <ProductName>{name}</ProductName>
             </Link>
             <Rating
               link={link}
               ratings={position}
-              handleClick={() => dispatch(selectProduct(product))}
+             // handleClick={() => dispatch(selectProduct(product))}
             />
             <Price
               price={price}
               currency={currency}
               link={link}
-              handleClick={() => dispatch(selectProduct(product))}
+              //handleClick={() => dispatch(selectProduct(product))}
             />
           </DetailsContainer>
         </CardWrapper>

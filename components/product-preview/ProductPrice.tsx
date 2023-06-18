@@ -1,8 +1,8 @@
-import styled from 'styled-components';
 import Link from 'next/link';
+import styled from 'styled-components';
 
-import { ProductCardProps } from '../../types/productCard';
-import { CurrencyEnum } from '../../types/assets';
+import { CurrencyEnum } from '@/types/assets';
+import { ProductCardProps } from '@/types/productCard';
 
 interface Props extends ProductCardProps {
   price: number | null;
@@ -18,21 +18,12 @@ const ProductPrice = ({
   checkout,
 }: Props) => {
   const displayPrice = price!.toLocaleString('en-US').split('.');
-  // const fixedPrice = fixedSenderDenominations?.at(0) ?? 0;
   return (
     <PriceContainer style={{ marginTop: checkout ? 0 : 10 }}>
       <PriceSubContainer href={link} role="button" onClick={handleClick}>
         <span className="symbol">{currency}</span>
         {displayPrice[0] ?? 0}
         <span className="fraction">{displayPrice[1] ?? '00'}</span>
-        {/* {denominationType === DenominationType.Range && (
-          <>
-            <span className="dash">-</span>
-            <span className="symbol">$</span>
-            {maxSenderDenomination?.toLocaleString() ?? fixedPrice}
-            <span className="fraction">00</span>
-          </>
-        )} */}
       </PriceSubContainer>
     </PriceContainer>
   );

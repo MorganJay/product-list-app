@@ -16,6 +16,7 @@ import ProductCard from '@/components/product-details/ProductCard';
 import ProductDisplay from '@/components/product-details/ProductDisplay';
 
 export function getStaticProps({ params }: { params: { id: string } }) {
+  console.log({ params });
   return {
     props: {
       productId: params.id,
@@ -34,6 +35,7 @@ export function getStaticProps({ params }: { params: { id: string } }) {
 // }
 
 const ProductDetailPage = ({ productId }: { productId: string }) => {
+  console.log(productId, 'top');
   const dispatch = useAppDispatch();
   const { selectedProduct, value } = useAppSelector(selectProductState);
   const [selectedAmount, setSelectedAmount] = useState<number>(0);
@@ -67,7 +69,7 @@ const ProductDetailPage = ({ productId }: { productId: string }) => {
     if (value?.length) {
       dispatch(filterAndSetSelectedProduct(productId!));
     }
-  }, [value?.length]);
+  }, [productId, dispatch, value]);
 
   useEffect(() => {
     if (selectedProduct) setSelectedAmount(selectedProduct.price!);
