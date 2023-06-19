@@ -9,7 +9,7 @@ const ProductBadge = () => {
             <Badge>
               <BadgeLabel>
                 <InnerBadgeLabel>
-                  <span className="first">AbInBev's </span>
+                  <span className="first">AbInBev&apos;s </span>
                   <span className="second">Choice</span>
                 </InnerBadgeLabel>
               </BadgeLabel>

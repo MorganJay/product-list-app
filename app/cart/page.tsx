@@ -102,7 +102,6 @@ const CartPage = () => {
                   )}
                 </CheckoutWrapper>
               )}
-              {/* <RelatedProducts /> */}
             </CheckoutContainer>
             <PageWrapper>
               <PageHeader isCartEmpty={isCartEmpty} />
