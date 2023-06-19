@@ -2,7 +2,8 @@ import { toast } from 'react-hot-toast';
 import axios, { AxiosError } from 'axios';
 
 axios.defaults.baseURL = process.env.NEXT_PUBLIC_APP_BASE_URL + '/v0.2';
-axios.defaults.headers.common['X-API-KEY'] = process.env.NEXT_PUBLIC_APP_API_KEY;
+axios.defaults.headers.common['X-API-KEY'] =
+  process.env.NEXT_PUBLIC_APP_API_KEY;
 
 axios.interceptors.response.use(null, (error: AxiosError) => {
   const expectedError =
@@ -28,7 +29,7 @@ export const expectedError = (error: AxiosError, statusCode: number) =>
 
 export const apiError = (status: string) => status !== 'success';
 
-export default {
+const services = {
   get: axios.get,
   post: axios.post,
   put: axios.put,
@@ -37,3 +38,5 @@ export default {
   expectedError,
   apiError,
 };
+
+export default services;

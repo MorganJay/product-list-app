@@ -3,12 +3,14 @@ import { toast } from 'react-hot-toast';
 
 import Button from '../Button';
 
-import { useAppDispatch } from '@/redux/hooks';
+import { CartItem } from '@/types/cart';
 import { CurrencyEnum } from '@/types/assets';
+
+import { useAppDispatch } from '@/redux/hooks';
+import { addItem } from '@/redux/features/cart/cartSlice';
+
 import { breakpointMd } from '@/variables.styles';
 
-import { addItem } from '@/redux/features/cart/cartSlice';
-import { CartItem } from '@/types/cart';
 
 interface Props {
   quantity: number;

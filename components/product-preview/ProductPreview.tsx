@@ -2,17 +2,14 @@ import Link from 'next/link';
 import styled from 'styled-components';
 
 import Badge from './Badge';
-import ProductImage from './ProductImage';
 import Price from './ProductPrice';
 import Rating from './ProductRating';
 import PopupToggle from './MenuPopup';
+import ProductImage from './ProductImage';
 
-import { useAppDispatch } from '@/redux/hooks';
-import { selectProduct } from '@/redux/features/products/productSlice';
 import { ProductPreviewProps } from '@/types/productCard';
 
 const ProductPreview = ({ product }: ProductPreviewProps) => {
-  const dispatch = useAppDispatch();
   const { name, thumbnail, productId, currency, price, position } = product;
   const link = `/products/${productId}`;
 
@@ -22,29 +19,13 @@ const ProductPreview = ({ product }: ProductPreviewProps) => {
         <CardWrapper>
           <PopupToggle />
           <Badge />
-          <ProductImage
-            imgUrl={thumbnail}
-            link={link}
-            name={name}
-           // handleClick={() => dispatch(selectProduct(product))}
-          />
+          <ProductImage imgUrl={thumbnail} link={link} name={name} />
           <DetailsContainer>
-            <Link href={link} 
-            //onClick={() => dispatch(selectProduct(product))}
-            >
+            <Link href={link}>
               <ProductName>{name}</ProductName>
             </Link>
-            <Rating
-              link={link}
-              ratings={position}
-             // handleClick={() => dispatch(selectProduct(product))}
-            />
-            <Price
-              price={price}
-              currency={currency}
-              link={link}
-              //handleClick={() => dispatch(selectProduct(product))}
-            />
+            <Rating link={link} ratings={position} />
+            <Price price={price} currency={currency} link={link} />
           </DetailsContainer>
         </CardWrapper>
       </SubContainer>

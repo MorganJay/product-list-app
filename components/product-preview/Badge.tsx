@@ -3,13 +3,13 @@ import styled from 'styled-components';
 const ProductBadge = () => {
   return (
     <BadgeContainer>
-      <span aria-label='Worldshop"s choice'>
+      <span aria-label='AbInbev"s choice'>
         <a href="">
           <span>
             <Badge>
               <BadgeLabel>
                 <InnerBadgeLabel>
-                  <span className="first">Worldshop's </span>
+                  <span className="first">AbInBev's </span>
                   <span className="second">Choice</span>
                 </InnerBadgeLabel>
               </BadgeLabel>

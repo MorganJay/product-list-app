@@ -1,9 +1,9 @@
 import styled, { css } from 'styled-components';
 
 interface CustomButtonProps {
-  primary?: boolean;
+  primary?: boolean | undefined;
   children: string | React.ReactNode;
-  secondary?: boolean;
+  secondary?: boolean | undefined;
   name: string;
   onClick?: () => void;
   type?: 'button' | 'submit' | 'reset' | undefined;

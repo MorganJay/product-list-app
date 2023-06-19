@@ -20,7 +20,13 @@ const ProductImage = ({
       <span>
         <Link href={link || '/'} onClick={handleClick}>
           <div>
-            <Image src={imgUrl} alt={name} height={200} width={300} />
+            <Image
+              src={imgUrl}
+              alt={name}
+              height={200}
+              width={300}
+              priority={true}
+            />
           </div>
         </Link>
       </span>

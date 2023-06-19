@@ -1,10 +1,10 @@
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 
 import ProductRating from '../product-preview/ProductRating';
 
 import QuantityInput from './QuantityInput';
 import { QuantityInputProps } from './QuantityInput';
-import { ProductPreviewProps } from '../../types/productCard';
+import { ProductPreviewProps } from '@/types/productCard';
 
 interface Props extends ProductPreviewProps, QuantityInputProps {}
 
@@ -43,21 +43,7 @@ const ProductDisplay = ({ quantity, onQuantityChange, product }: Props) => {
         </a>
       </ProductDescription>
       <Divider />
-      {/* <h2>Enter your gift card details</h2>
-      <br />
-      <h4>
-        This Gift Card can only be used to purchase eligible goods and services
-        available on Worldshop.com, and cannot be used on Worldshop websites in
-        other countries.
-      </h4> */}
       <DetailsPicker>
-        {/* <AmountPicker
-          denominations={fixedSenderDenominations}
-          inputtedAmount={inputtedAmount}
-          onAmountChange={onAmountChange}
-          onAmountListClick={onAmountListClick}
-          selectedAmount={selectedAmount}
-        /> */}
         <QuantityInput
           quantity={quantity}
           onQuantityChange={onQuantityChange}

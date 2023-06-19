@@ -4,6 +4,10 @@ import styled from 'styled-components';
 import { useEffect, useState } from 'react';
 import CircularProgress from '@mui/material/CircularProgress';
 
+import CartCTA from '@/components/product-details/CartCTA';
+import ProductCard from '@/components/product-details/ProductCard';
+import ProductDisplay from '@/components/product-details/ProductDisplay';
+
 import { useAppDispatch, useAppSelector } from '@/redux/hooks';
 import {
   selectProductState,
@@ -11,31 +15,7 @@ import {
   filterAndSetSelectedProduct,
 } from '@/redux/features/products/productSlice';
 
-import CartCTA from '@/components/product-details/CartCTA';
-import ProductCard from '@/components/product-details/ProductCard';
-import ProductDisplay from '@/components/product-details/ProductDisplay';
-
-export function getStaticProps({ params }: { params: { id: string } }) {
-  console.log({ params });
-  return {
-    props: {
-      productId: params.id,
-    },
-  };
-}
-
-// export function getStaticPaths() {
-
-//   return {
-//     paths: coffeeStoresData.map(store => {
-//       return { params: { id: store.id.toString() } };
-//     }),
-//     fallback: true, // can also be true or 'blocking'
-//   };
-// }
-
-const ProductDetailPage = ({ productId }: { productId: string }) => {
-  console.log(productId, 'top');
+const ProductDetailPage = ({ params }: { params: { id: string } }) => {
   const dispatch = useAppDispatch();
   const { selectedProduct, value } = useAppSelector(selectProductState);
   const [selectedAmount, setSelectedAmount] = useState<number>(0);
@@ -63,13 +43,13 @@ const ProductDetailPage = ({ productId }: { productId: string }) => {
     if (!selectedProduct) {
       dispatch(fetchAssetsAsync());
     }
-  }, []);
+  }, [selectedProduct, fetchAssetsAsync, dispatch]);
 
   useEffect(() => {
     if (value?.length) {
-      dispatch(filterAndSetSelectedProduct(productId!));
+      dispatch(filterAndSetSelectedProduct(params.id));
     }
-  }, [productId, dispatch, value]);
+  }, [params.id, dispatch, value]);
 
   useEffect(() => {
     if (selectedProduct) setSelectedAmount(selectedProduct.price!);
