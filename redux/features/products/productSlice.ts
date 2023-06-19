@@ -26,7 +26,7 @@ export const fetchAssetsAsync = createAsyncThunk(
       data: { data },
     } = await getAssetsAsync();
 
-    return data.ecommerce; // Ecommerce or giftCardsRLD
+    return data.ecommerce.slice(0, 12); // Ecommerce or giftCardsRLD
   }
 );
 

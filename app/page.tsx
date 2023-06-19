@@ -50,13 +50,13 @@ export default function Home() {
               <CountContainer>
                 <CountSubContainer>
                   <TextWrapper>
-                    1 - 12 of over {value!.length - 50} results for
+                    1 - 12 of over 200 results for
                     <ProductTitle> Our Products</ProductTitle>
                   </TextWrapper>
                 </CountSubContainer>
               </CountContainer>
               <ProductsGrid>
-                {value?.slice(0, 12).map(product => (
+                {value?.map(product => (
                   <ProductPreview key={product.productId} product={product} />
                 ))}
               </ProductsGrid>

@@ -43,7 +43,7 @@ const ProductDetailPage = ({ params }: { params: { id: string } }) => {
     if (!selectedProduct) {
       dispatch(fetchAssetsAsync());
     }
-  }, [selectedProduct, fetchAssetsAsync, dispatch]);
+  }, [selectedProduct, dispatch]);
 
   useEffect(() => {
     if (value?.length) {
