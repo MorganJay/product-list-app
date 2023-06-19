@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 import Button from '../Button';
-import { breakpointMd } from '../../variables.styles';
+import { breakpointMd } from '@/variables.styles';
 
 const CheckoutButton = () => {
   return (

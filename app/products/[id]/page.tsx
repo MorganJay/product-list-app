@@ -56,46 +56,48 @@ const ProductDetailPage = ({ params }: { params: { id: string } }) => {
   }, [selectedProduct]);
 
   return (
-    <Container>
-      {!selectedProduct ? (
-        <CircularProgress
-          size={50}
-          sx={{
-            position: 'absolute',
-            top: 200,
-            left: 0,
-            color: '#c45500',
-            right: 0,
-            margin: 'auto',
-          }}
-        />
-      ) : (
-        <>
-          <ProductCard
-            img={selectedProduct?.thumbnail}
-            name={selectedProduct?.name}
-            price={selectedAmount}
+    <>
+      <Container>
+        {!selectedProduct ? (
+          <CircularProgress
+            size={50}
+            sx={{
+              position: 'absolute',
+              top: 200,
+              left: 0,
+              color: '#c45500',
+              right: 0,
+              margin: 'auto',
+            }}
           />
-          <ProductDisplay
-            quantity={quantity}
-            product={selectedProduct!}
-            onQuantityChange={handleQuantityInputChange}
-          />
-          <CartCTA
-            productId={selectedProduct.productId}
-            currency={selectedProduct!.currency!}
-            quantity={quantity}
-            totalPrice={totalPrice}
-          />
-        </>
-      )}
-    </Container>
+        ) : (
+          <>
+            <ProductCard
+              img={selectedProduct?.thumbnail}
+              name={selectedProduct?.name}
+              price={selectedAmount}
+            />
+            <ProductDisplay
+              quantity={quantity}
+              product={selectedProduct!}
+              onQuantityChange={handleQuantityInputChange}
+            />
+            <CartCTA
+              productId={selectedProduct.productId}
+              currency={selectedProduct!.currency!}
+              quantity={quantity}
+              totalPrice={totalPrice}
+            />
+          </>
+        )}
+      </Container>
+    </>
   );
 };
 
 export default ProductDetailPage;
 
-export const Container = styled.div`
+const Container = styled.div`
   max-width: 1902px;
   width: 95%;
   padding: 18px 1.661%;

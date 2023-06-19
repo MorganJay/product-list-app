@@ -3,8 +3,8 @@ import GiftPrompt from '../cart/GiftPrompt';
 import CartControls from '../cart/CartControls';
 import ProductPrice from '../product-preview/ProductPrice';
 
-import { EcommerceCartItem } from '../../types/cart';
-import { breakpointMd } from '../../variables.styles';
+import { EcommerceCartItem } from '@/types/cart';
+import { breakpointMd } from '@/variables.styles';
 
 import {
   Container,

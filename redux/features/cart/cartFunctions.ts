@@ -1,16 +1,16 @@
-import { Ecommerce } from '../../types/assets';
-import { EcommerceCartItem, CartItem } from '../../types/cart';
+import { Ecommerce } from '@/types/assets';
+import { EcommerceCartItem, CartItem } from '@/types/cart';
 
 export const addItemToCart = (
   cartItemToAdd: CartItem,
   cartItems: CartItem[]
 ) => {
   const existingCartItem = cartItems.find(
-    (cartItem) => cartItem.id === cartItemToAdd.id
+    cartItem => cartItem.id === cartItemToAdd.id
   );
 
   if (existingCartItem) {
-    return cartItems.map((cartItem) =>
+    return cartItems.map(cartItem =>
       cartItem.id === cartItemToAdd.id
         ? { ...cartItem, quantity: cartItem.quantity + 1 }
         : cartItem
@@ -25,14 +25,14 @@ export const removeItemFromCart = (
   cartItemToRemove: CartItem
 ) => {
   const existingCartItem = cartItems.find(
-    (cartItem) => cartItem.id === cartItemToRemove.id
+    cartItem => cartItem.id === cartItemToRemove.id
   );
 
   if (existingCartItem?.quantity === 1) {
-    return cartItems.filter((cartItem) => cartItem.id !== cartItemToRemove.id);
+    return cartItems.filter(cartItem => cartItem.id !== cartItemToRemove.id);
   }
 
-  return cartItems.map((cartItem) =>
+  return cartItems.map(cartItem =>
     cartItem.id === cartItemToRemove.id
       ? { ...cartItem, quantity: cartItem.quantity - 1 }
       : cartItem
@@ -44,7 +44,7 @@ export const fetchCartItemsData = (
   products: Ecommerce[]
 ): EcommerceCartItem[] => {
   let cartItems: EcommerceCartItem[] = [];
-  cartItemsState.forEach((item) => {
+  cartItemsState.forEach(item => {
     const cartItem = products!.find(({ productId }) => productId === item.id);
     if (cartItem)
       cartItems.push({
@@ -67,11 +67,11 @@ export const updateItemInCart = (
   cartItemToUpdate: CartItem
 ) => {
   const existingCartItem = cartItems.find(
-    (cartItem) => cartItem.id === cartItemToUpdate.id
+    cartItem => cartItem.id === cartItemToUpdate.id
   );
 
   if (existingCartItem) {
-    return cartItems.map((cartItem) =>
+    return cartItems.map(cartItem =>
       cartItem.id === cartItemToUpdate.id
         ? { ...cartItem, quantity: cartItemToUpdate.quantity }
         : cartItem

@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import { breakpointMd, linkColor } from '../../variables.styles';
+import { breakpointMd, linkColor } from '@/variables.styles';
 
 export const Container = styled.div`
   background: #f8f8f8;

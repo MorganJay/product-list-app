@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import { breakpointMd } from '../../variables.styles';
+import { breakpointMd } from '@/variables.styles';
 
 const RelatedProducts = () => {
   return (

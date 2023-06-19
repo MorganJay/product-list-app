@@ -2,7 +2,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import styled from 'styled-components';
 
-import { ProductCardProps } from '../../types/productCard';
+import { ProductCardProps } from '@/types/productCard';
 
 interface ProductImageProps extends ProductCardProps {
   imgUrl: string;

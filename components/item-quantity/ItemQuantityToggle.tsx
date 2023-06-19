@@ -5,13 +5,13 @@ import Buttons from './ItemQuantityButtons';
 import { Separator } from '../cart/CartControls';
 import { CartItemProps } from '../cart-item/CartItem';
 
-import { breakpointMd } from '../../variables.styles';
+import { breakpointMd } from '@/variables.styles';
 
 const ItemQuantityToggle = ({ item, onDelete }: CartItemProps) => {
   return (
     <Container>
       {window.innerWidth < breakpointMd ? (
-        <Buttons item={item} onDelete={onDelete}/>
+        <Buttons item={item} onDelete={onDelete} />
       ) : (
         <Select item={item} onDelete={onDelete} />
       )}

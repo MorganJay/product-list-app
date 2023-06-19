@@ -3,9 +3,9 @@ import styled from 'styled-components';
 import CartItem from '../cart-item/CartItem';
 import { Divider } from '../product-details/ProductDisplay';
 
-import { borderColor, breakpointLg } from '../../variables.styles';
-import { EcommerceCartItem } from '../../types/cart';
-import { ItemActionPrompt } from '../../redux/cartPageReducer';
+import { borderColor, breakpointLg } from '@/variables.styles';
+import { EcommerceCartItem } from '@/types/cart';
+import { ItemActionPrompt } from '@/redux/features/cart/cartPageReducer';
 
 interface Props {
   items: EcommerceCartItem[];
@@ -27,7 +27,7 @@ const CartItemList = ({
       ) : items.length || itemPrompt ? (
         <ListHeader>Price</ListHeader>
       ) : null}
-      {items.map((item) => (
+      {items.map(item => (
         <CartItem
           key={item.productId}
           item={item}

@@ -1,9 +1,8 @@
 import styled from 'styled-components';
-import { Link } from 'react-router-dom';
 
-import { breakpointMd, linkColor } from '../../variables.styles';
-import { EcommerceCartItem } from '../../types/cart';
-import { ItemActionPrompt } from '../../redux/cartPageReducer';
+import { breakpointMd, linkColor } from '@/variables.styles';
+import { EcommerceCartItem } from '@/types/cart';
+import { ItemActionPrompt } from '@/redux/features/cart/cartPageReducer';
 
 interface Props {
   itemPrompt: ItemActionPrompt | undefined;

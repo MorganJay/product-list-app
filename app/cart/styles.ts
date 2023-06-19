@@ -1,8 +1,8 @@
 import styled from 'styled-components';
 
-import { Divider } from '../../components/product-details/ProductDisplay';
+import { Divider } from '@/components/product-details/ProductDisplay';
 
-import { breakpointMd } from '../../variables.styles';
+import { breakpointMd } from '@/variables.styles';
 
 export const Container = styled.div`
   width: 100%;

@@ -1,4 +1,4 @@
-import styled, { css, ThemedStyledFunctionBase } from 'styled-components';
+import styled, { css } from 'styled-components';
 import Link from 'next/link';
 
 import { ProductCardProps } from '@/types/productCard';
@@ -8,7 +8,7 @@ interface ProductRatingProps extends ProductCardProps {
   detailed?: boolean;
 }
 
-interface RatingsCountProps extends ThemedStyledFunctionBase<'span', object> {
+interface RatingsCountProps {
   detailed?: boolean;
 }
 

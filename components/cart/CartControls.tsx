@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { CartItemProps } from '../cart-item/CartItem';
 import ItemQuantityToggle from '../item-quantity/ItemQuantityToggle';
 
-import { breakpointMd, linkColor } from '../../variables.styles';
+import { breakpointMd, linkColor } from '@/variables.styles';
 
 export const Separator = () => (
   <StyledSeparator
