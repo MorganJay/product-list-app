@@ -1,6 +1,7 @@
 'use client';
 
-import { useEffect } from 'react';
+import { useState, useEffect } from 'react';
+import { useRouter } from 'next/navigation';
 
 import Loader from '@/components/Loader';
 import ProductPreview from '@/components/product-preview/ProductPreview';
@@ -20,27 +21,53 @@ import {
   CountContainer,
   CountSubContainer,
   TextWrapper,
+  SearchBox,
 } from './styles';
 
 export default function Home() {
   const dispatch = useAppDispatch();
   const { status, value } = useAppSelector(selectProductState);
+  const [searchText, setSearchText] = useState('');
+  const [products, setProducts] = useState(value);
 
-  // TODO: Add state and button for viewing all products
+  const onSearch = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const { value } = event.target;
+    setSearchText(value.toLowerCase());
+  };
 
   useEffect(() => {
     if (!value) dispatch(fetchAssetsAsync());
+    if (value) setProducts(value);
   }, [value, dispatch]);
+
+  useEffect(() => {
+    if (searchText) {
+      const filteredProducts = value!.filter(product =>
+        product.name.toLowerCase().includes(searchText)
+      );
+      setProducts(filteredProducts);
+    } else {
+      setProducts(value);
+    }
+  }, [searchText]);
 
   return (
     <>
       <Container>
         <ListContainer>
-          {status !== LoadingState.IDLE && !value ? (
+          {status !== LoadingState.IDLE && !products ? (
             <Loader />
           ) : (
             <>
               <CountContainer>
+                <SearchBox
+                  type="search"
+                  name="Search for products"
+                  id="productSearch"
+                  value={searchText}
+                  placeholder="Search for a product"
+                  onChange={onSearch}
+                />
                 <CountSubContainer>
                   <TextWrapper>
                     1 - 12 of over 200 results for
@@ -49,7 +76,7 @@ export default function Home() {
                 </CountSubContainer>
               </CountContainer>
               <ProductsGrid>
-                {value?.map(product => (
+                {products?.map(product => (
                   <ProductPreview key={product.productId} product={product} />
                 ))}
               </ProductsGrid>

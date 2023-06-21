@@ -40,3 +40,10 @@ export const ProductsGrid = styled.div`
   overflow: hidden;
   gap: 1rem;
 `;
+
+export const SearchBox = styled.input`
+  border: 1px solid #d5d9d9;
+  border-radius: 8px;
+  padding: 1rem 1.286rem;
+  width: 40%;
+`;
